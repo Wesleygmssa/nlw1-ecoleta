@@ -1,6 +1,7 @@
 import express, { request, response } from 'express';
 
 const app = express();
+app.use(express.json())
 
 
 const users = [
@@ -28,9 +29,11 @@ app.get('/users/:id', (request, response) => {
 
 app.post('/users', (request, response) => {
 
+    const data = request.body;
+
     const user = {
-        name: 'Wesley',
-        email: 'wesleyguerra@...'
+        name: data.name,
+        email: data.email
     }
 
     return response.json(user);
