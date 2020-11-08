@@ -1,8 +1,14 @@
 import express, { request, response } from 'express';
+import cors from 'cors';
 import path from 'path';
 import routes from './routes/routes';
 
 const app = express();
+
+//poder fazer a api para front end
+app.use(cors(
+    // origin: 'www.'
+));
 
 //recebendo arquivo JSON
 app.use(express.json());
